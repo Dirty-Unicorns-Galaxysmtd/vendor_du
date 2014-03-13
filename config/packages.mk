@@ -21,7 +21,7 @@ PRODUCT_PACKAGES += \
 	audio_effects.conf \
 	MonthCalendarWidget \
         OmniSwitch \
-        Term
+        Terminal
 
 PRODUCT_PACKAGES += \
 	CellBroadcastReceiver
