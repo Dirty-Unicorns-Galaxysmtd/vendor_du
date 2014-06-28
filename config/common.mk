@@ -86,6 +86,9 @@ PRODUCT_COPY_FILES += \
 # Add our overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/du/overlay/common
 
+# T-Mobile theme engine
+include vendor/du/configs/themes_common.mk
+
 # SU Support
 PRODUCT_COPY_FILES += \
     vendor/du/prebuilt/bin/su:system/xbin/daemonsu \
@@ -102,6 +105,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.romstats.url=http://stats.dirtyunicorns.com/ \
 ro.romstats.name=DirtyUnicorns \
-ro.romstats.version=7.1 \
+ro.romstats.version=7.6 \
 ro.romstats.tframe=3
 

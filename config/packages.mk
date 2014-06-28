@@ -16,7 +16,6 @@ PRODUCT_PACKAGES += \
         DU_changelog \
         DU_stats \
         DU_walls \
-        KernelTweaker \
 	libcyanogen-dsp \
 	audio_effects.conf \
 	MonthCalendarWidget \
@@ -37,5 +36,8 @@ PRODUCT_PACKAGES += \
 	nano \
 	htop \
 	powertop \
-	lsof
+	lsof \
+	mount.exfat \
+	fsck.exfat \
+	mkfs.exfat
 
