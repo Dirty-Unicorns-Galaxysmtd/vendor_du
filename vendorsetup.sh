@@ -5,12 +5,13 @@ add_lunch_combo du_d802-userdebug
 add_lunch_combo du_d803-userdebug
 add_lunch_combo du_deb-userdebug
 add_lunch_combo du_exhilarate-userdebug
-add_lunch_combo du_find7a-userdebug
+add_lunch_combo du_find7-userdebug
 add_lunch_combo du_flo-userdebug
 add_lunch_combo du_gee-userdebug
 add_lunch_combo du_grouper-userdebug
 add_lunch_combo du_hammerhead-userdebug
 add_lunch_combo du_jflte-userdebug
+add_lunch_combo du_i9100-userdebug
 add_lunch_combo du_i9300-userdebug
 add_lunch_combo du_i9305-userdebug
 add_lunch_combo du_i605-userdebug
