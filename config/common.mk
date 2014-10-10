@@ -28,6 +28,7 @@ PRODUCT_COPY_FILES += \
     vendor/du/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
     vendor/du/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
     vendor/du/prebuilt/bin/50-hosts.sh:system/addon.d/50-hosts.sh \
+    vendor/du/prebuilt/bin/99-backup.sh:system/addon.d/99-backup.sh \
     vendor/du/prebuilt/bin/blacklist:system/addon.d/blacklist
 
 # init.d support
@@ -69,9 +70,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/du/prebuilt/etc/init.local.rc:root/init.du.rc
 
+# Boot Animation
+PRODUCT_COPY_FILES += \
+    vendor/du/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
+
 # Enable SIP and VoIP on all targets
 PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # Additional packages
 -include vendor/du/config/packages.mk
@@ -83,7 +88,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGE_OVERLAYS += vendor/du/overlay/common
 
 # T-Mobile theme engine
-include vendor/du/configs/themes_common.mk
+include vendor/du/config/themes_common.mk
 
 # SU Support
 PRODUCT_COPY_FILES += \
@@ -91,8 +96,30 @@ PRODUCT_COPY_FILES += \
     vendor/du/prebuilt/bin/su:system/xbin/su \
     vendor/du/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon \
     vendor/du/prebuilt/apk/Superuser.apk:system/app/Superuser.apk
-    
+
+# CM Hardware Abstraction Framework
+PRODUCT_PACKAGES += \
+    org.cyanogenmod.hardware \
+    org.cyanogenmod.hardware.xml
+
 # HFM Files
 PRODUCT_COPY_FILES += \
     vendor/du/prebuilt/etc/hosts.alt:system/etc/hosts.alt \
     vendor/du/prebuilt/etc/hosts.og:system/etc/hosts.og
+
+# Versioning System
+ANDROID_VERSION = 4.4.4
+DU_VERSION = v8.0
+
+ifndef DU_BUILD_TYPE
+    DU_BUILD_TYPE := UNOFFICIAL
+    PLATFORM_VERSION_CODENAME := UNOFFICIAL
+endif
+
+# Set all versions
+DU_VERSION := DU_$(DU_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(DU_VERSION)-$(DU_BUILD_TYPE)
+DU_MOD_VERSION := DU_$(DU_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(DU_VERSION)-$(DU_BUILD_TYPE)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    BUILD_DISPLAY_ID=$(BUILD_ID) \
+    ro.du.version=$(DU_VERSION) \
