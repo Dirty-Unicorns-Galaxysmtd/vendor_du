@@ -8,6 +8,7 @@ add_lunch_combo du_deb-userdebug
 add_lunch_combo du_falcon-userdebug
 add_lunch_combo du_find7-userdebug
 add_lunch_combo du_flo-userdebug
+add_lunch_combo du_galaxysmtd-userdebug
 add_lunch_combo du_gee-userdebug
 add_lunch_combo du_grouper-userdebug
 add_lunch_combo du_hammerhead-userdebug
